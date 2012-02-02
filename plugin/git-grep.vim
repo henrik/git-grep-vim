@@ -4,7 +4,7 @@ function! GitGrep(args)
     let grepprg_bak=&grepprg
     exec "set grepprg=" . g:gitgrepprg
     execute "silent! grep " . a:args
-    botright copen
+    topleft copen
     let &grepprg=grepprg_bak
     exec "redraw!"
 endfunction
@@ -13,7 +13,7 @@ function! GitGrepAdd(args)
     let grepprg_bak=&grepprg
     exec "set grepprg=" . g:gitgrepprg
     execute "silent! grepadd " . a:args
-    botright copen
+    topleft copen
     let &grepprg=grepprg_bak
     exec "redraw!"
 endfunction
@@ -22,7 +22,7 @@ function! LGitGrep(args)
     let grepprg_bak=&grepprg
     exec "set grepprg=" . g:gitgrepprg
     execute "silent! lgrep " . a:args
-    botright lopen
+    topleft lopen
     let &grepprg=grepprg_bak
     exec "redraw!"
 endfunction
@@ -31,7 +31,7 @@ function! LGitGrepAdd(args)
     let grepprg_bak=&grepprg
     exec "set grepprg=" . g:gitgrepprg
     execute "silent! lgrepadd " . a:args
-    botright lopen
+    topleft lopen
     let &grepprg=grepprg_bak
     exec "redraw!"
 endfunction

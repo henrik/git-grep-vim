@@ -1,8 +1,11 @@
 let g:gitgrepprg="git\\ grep\\ -En"
+let g:gitgrepformat="%f:%l:%m,%f:%l%m,%f\\ \\ %l%m"
 
 function! s:GitGrep(cmd, args)
     let grepprg_bak=&grepprg
+    let grepformat_bak=&grepformat
     exec "set grepprg=" . g:gitgrepprg
+    exec "set grepformat=" . g:gitgrepformat
 
     let l:grepargs = a:args
     " Escape pipes in e.g. :GitGrep "foo|bar"
@@ -21,6 +24,7 @@ function! s:GitGrep(cmd, args)
     endif
 
     let &grepprg=grepprg_bak
+    let &grepformat=grepformat_bak
     exec "redraw!"
 endfunction
 
